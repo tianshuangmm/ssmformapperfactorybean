@@ -58,9 +58,9 @@
         <property name="sqlSessionFactory" ref="sqlSessionFactory" />
     </bean>
 
-    <bean id="userDaoImpl" class="com.ts.ssm.dao.daoImpl.UserDaoImpl">
+  <!--  <bean id="userDaoImpl" class="com.xxt.ibatis.dbcp.dao.impl.UserDaoImpl">
         <property name="userMapper" ref="userMapper"/>
-    </bean>
+    </bean>-->
 
     <!--配置事务管理器，需要提供连接池属性-->
     <bean id = "transactionManager" class = "org.springframework.jdbc.datasource.DataSourceTransactionManager">

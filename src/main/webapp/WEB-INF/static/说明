@@ -8,3 +8,7 @@ SqlSessionFactoryBean来替代SqlSessionFactoryBuilder来创建SqlSession
 不用写mybatis映射文件
 
 采用注解方式提供相应的sql语句和输入参数。
+对比以下网址
+https://www.cnblogs.com/guopeng-blogs/p/8353339.html
+
+https://www.cnblogs.com/ClassNotFoundException/p/6425558.html
