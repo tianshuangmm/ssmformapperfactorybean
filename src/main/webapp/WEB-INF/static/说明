@@ -1,0 +1,10 @@
+这是一个基于idea的ssm项目 时间2019/04/22
+基于aspectJ的声明式编程
+主要是spring和mybatis整合的第二种方式
+SqlSessionFactoryBean来替代SqlSessionFactoryBuilder来创建SqlSession
+
+采用数据映射器（MapperFactoryBean）的方式
+
+不用写mybatis映射文件
+
+采用注解方式提供相应的sql语句和输入参数。
