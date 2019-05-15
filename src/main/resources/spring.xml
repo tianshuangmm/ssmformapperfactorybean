@@ -9,20 +9,25 @@
                         http://www.springframework.org/schema/context/spring-context-3.1.xsd
                         http://www.springframework.org/schema/tx
                         http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+    <!-- 自动扫描两种方式 -->
+    <context:component-scan base-package="com.ts.ssm" />
+
     <!-- 自动扫描 -->
     <!--<context:include-filter>和<context:exclude-filter>各代表引入和排除的过滤。-->
-    <context:component-scan base-package="com.ts.ssm" use-default-filters="true">
-        <!--controller注解由ioc管理-->
+    <!--<context:component-scan base-package="com.ts.ssm" use-default-filters="true">
+        controller注解由ioc管理
         <context:include-filter  type="annotation" expression="org.springframework.stereotype.Controller"/>
-    </context:component-scan>
+    </context:component-scan>-->
 
-    <!-- 引入数据库配置文件 -->
+    <!-- 引入配置文件两种方式 -->
     <context:property-placeholder location="classpath:jdbc.properties"/>
 
-   <!-- <bean id = "propertyConfigurer" class = "org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer">
-        <property name = "location" value="classpath:jdbc.properties" />
+    <!-- 引入数据库配置文件 -->
+    <!--<bean id="propertyConfigurer"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:jdbc.properties" />
     </bean>-->
-    <!-- 连接池 -->
+
     <bean id = "dataSource" class = "org.apache.commons.dbcp.BasicDataSource"
           destroy-method = "close">
         <property name="driverClassName" value="${jdbc.driver}" />
@@ -49,19 +54,27 @@
         <!-- 自动扫描mapping.xml文件 -->
         <!-- 指定mybatis,mapper文件的位置 -->
         <!--如果在mybatis-config.xml利用<mappers>进行xml映射文件的配置，就可以不用配置下面的mapperLocation属性了-->
-        <property name = "mapperLocations" value="classpath*:com/ts/ssm/dao/mapping/*.xml" />
+        <property name = "mapperLocations" value="classpath:com/ts/ssm/dao/mapping/*.xml" />
     </bean>
 
-    <!--创建数据映射器，数据映射器必须为接口-->
+
+    <!-- DAO接口所在包名，Spring会自动查找其下的类 -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.ts.ssm.dao.mapping" />
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
+    </bean>
+
+    <!--配合注解使用-->
+   <!-- &lt;!&ndash;创建数据映射器，数据映射器必须为接口&ndash;&gt;
     <bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
         <property name="mapperInterface" value="com.ts.ssm.dao.mapping.UserMapper" />
         <property name="sqlSessionFactory" ref="sqlSessionFactory" />
-    </bean>
+    </bean>-->
 
   <!--  <bean id="userDaoImpl" class="com.xxt.ibatis.dbcp.dao.impl.UserDaoImpl">
         <property name="userMapper" ref="userMapper"/>
     </bean>-->
-
+    <!--使用注解的两种方式-->
     <!--配置事务管理器，需要提供连接池属性-->
     <bean id = "transactionManager" class = "org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name = "dataSource" ref = "dataSource" />

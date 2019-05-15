@@ -1,4 +1,4 @@
-package com.ts.ssm.dao;
+package com.ts.ssm.dao.mapping;
 
 import com.ts.ssm.bean.User;
 

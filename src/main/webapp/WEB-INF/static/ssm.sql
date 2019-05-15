@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50714
 File Encoding         : 65001
 
-Date: 2019-04-22 16:49:08
+Date: 2019-05-15 10:08:52
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -20,15 +20,18 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
-  `id` int(11) NOT NULL,
-  `username` varchar(255) DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_name` varchar(255) DEFAULT NULL,
   `sex` varchar(255) DEFAULT NULL,
   `date` datetime DEFAULT NULL,
   `age` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', '1', '1', '2019-04-22 12:45:58', '11');
+INSERT INTO `user` VALUES ('16', 'tx2', '2', null, '1');
+INSERT INTO `user` VALUES ('23', 'tx2', '2', null, '1');
+INSERT INTO `user` VALUES ('25', 'tx2', '2', null, '1');
+INSERT INTO `user` VALUES ('26', 'tx2', '2', null, '1');

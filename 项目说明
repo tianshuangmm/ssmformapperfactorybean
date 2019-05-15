@@ -1,7 +1,9 @@
+项目名配置/ssm
 这是一个基于idea的ssm项目 时间2019/04/22
 基于aspectJ的声明式编程
 主要是spring和mybatis整合的第二种方式
 SqlSessionFactoryBean来替代SqlSessionFactoryBuilder来创建SqlSession
+      注解 xml两种方式创建dao的实现类
 
 采用数据映射器（MapperFactoryBean）的方式
 

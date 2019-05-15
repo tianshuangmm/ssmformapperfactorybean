@@ -174,14 +174,26 @@
       <version>${jackson.version}</version>
     </dependency>
 
-
+    <!--文件下载需要-->
+    <dependency>
+      <groupId>commons-fileupload</groupId>
+      <artifactId>commons-fileupload</artifactId>
+      <version>1.3.1</version>
+    </dependency>
+    <!--Spring】—AOP之AspectJ注解方式实现声明式事务管理-->
     <dependency>
       <groupId>org.aspectj</groupId>
       <artifactId>aspectjweaver</artifactId>
       <version>1.9.3</version>
     </dependency>
+
+
   </dependencies>
 
+
+
+
+<!--
   <build>
     <finalName>academicnetwork</finalName>
     <plugins>
@@ -195,7 +207,7 @@
         </configuration>
       </plugin>
     </plugins>
-  </build>
+  </build>-->
 
 
 

@@ -12,10 +12,11 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/info",method = RequestMethod.GET)
+    @RequestMapping(value = "/info")
     @ResponseBody
     public User getUserById(Integer id) {
         User user=userService.getUserById(id);
+        if(user!=null)
         System.out.println(user.getUserName());
         return user;
     }
